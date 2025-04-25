@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useCRM } from '@/contexts/CRMContext';
 import { useAppSettings } from '@/contexts/AppSettingsContext';
@@ -60,8 +59,11 @@ export const usePreviewActions = ({
       return;
     }
     
-    // Use the locale from settings if available
-    const html = generatePreviewHTML(data, moduleName, title, columns, settings?.locale);
+    // Updated to use correct number of arguments
+    const html = generatePreviewHTML(data, {
+      title: title || `Aperçu - ${moduleName}`,
+      columns: columns
+    });
     setPreviewHTML(html);
     setPreviewOpen(true);
   };
