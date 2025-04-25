@@ -60,8 +60,8 @@ export const usePreviewActions = ({
       return;
     }
     
-    // Fixed: Removed the moduleName argument as it's already included in the options
-    const html = generatePreviewHTML(data, moduleName, title, columns);
+    // Use the locale from settings if available
+    const html = generatePreviewHTML(data, moduleName, title, columns, settings?.locale);
     setPreviewHTML(html);
     setPreviewOpen(true);
   };

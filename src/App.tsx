@@ -2,6 +2,8 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Sidebar } from './components/layout/Sidebar';
 import Dashboard from './pages/Dashboard';
+import LogAnalysis from './pages/LogAnalysis';
+import { Toaster } from 'sonner';
 
 export default function App() {
   return (
@@ -11,7 +13,7 @@ export default function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/logs" element={<div>Log Explorer</div>} />
+            <Route path="/logs" element={<LogAnalysis />} />
             <Route path="/analysis" element={<div>Error Analysis</div>} />
             <Route path="/resolutions" element={<div>Resolutions</div>} />
             <Route path="/sources" element={<div>Sources</div>} />
@@ -19,6 +21,7 @@ export default function App() {
           </Routes>
         </main>
       </div>
+      <Toaster position="top-right" />
     </Router>
   );
 }
